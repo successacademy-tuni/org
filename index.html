@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-green-400 min-h-screen flex items-center justify-center">
+  <div class="w-full max-w-xs">
+    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+<h1 class="block text-gray-700 text-sm font-bold mb-2 text-center">   Welcome to Success Academy </h1><br>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+          Username:
+        </label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" name="username" required>
+      </div>
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+          Password:
+        </label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" name="password" required>
+      </div>
+      <div class="flex items-center justify-between">
+        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" id="loginButton">
+          Login
+        </button>
+      </div>
+    </form>
+  </div>
+  <script>
+
+ document.addEventListener("contextmenu", function(e) {
+    e.preventDefault();
+  });
+    // Add your JavaScript for authentication here
+    var isAuthenticated = false;
+
+    function checkAuthentication() {
+      if (!isAuthenticated) {
+        window.location.href = 'index.html'; // Redirect to the login page
+      }
+    }
+
+    document.getElementById('loginButton').addEventListener('click', function() {
+      const enteredUsername = document.getElementById('username').value;
+      const enteredPassword = document.getElementById('password').value;
+
+      if (enteredUsername === 'Admin' && enteredPassword === '#Adm!8364') {
+        isAuthenticated = true;
+        window.location.href = 'admin.html'; // Redirect to the admin page
+      } else if (enteredUsername === 'Success' && enteredPassword === '#Tuni99') {
+        isAuthenticated = true;
+        window.location.href = 'user.html'; // Redirect to the user page
+      } else {
+        alert('Invalid credentials. Access denied.');
+      }
+    });
+
+    // Uncomment this line to check authentication on page load
+    // checkAuthentication();
+  </script>
+</body>
+</html>
